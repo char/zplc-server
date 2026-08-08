@@ -7,8 +7,15 @@ it's basically just the order that they appear in the plc.directory export
 
 ```shell
 $ # ingest from plc.directory exports:
-$ deno task ingest
-# -- [parallel session] --
+$ cargo run --release -- ingest plc
 $ # serve the zplc api:
-$ deno task serve
+$ cargo run --release -- serve
+```
+
+## API
+
+```
+GET /<zplc>        resolve a ZPLC number to a did:plc identifier
+GET /did:plc:<id> resolve a did:plc identifier to a ZPLC number
+GET /latest        creation timestamp of the latest ingested operation
 ```
